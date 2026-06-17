@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  
+  /* Neon Green Brand Theme Colors */
+  --color-brand-indigo-50: #f0fdf4;
+  --color-brand-indigo-100: #dcfce7;
+  --color-brand-indigo-500: #22c55e;
+  --color-brand-indigo-600: #00FF66; /* Neon Green */
+  --color-brand-indigo-700: #15803d;
+  --color-brand-indigo-950: #052e16;
+  
+  --color-brand-emerald-50: #f0fdf4;
+  --color-brand-emerald-100: #dcfce7;
+  --color-brand-emerald-500: #00FF66;
+  --color-brand-emerald-600: #16a34a;
+  --color-brand-emerald-700: #15803d;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #080808;
+}
+
+body {
+  color: #ededed;
+  overflow-x: hidden;
+  background-color: #080808;
+}
+
+/* CSS Grid Background Backdrop - Elegant gray grid */
+.bg-grid-lines {
+  background-size: 120px 120px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f1f1f;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00FF66;
+}
+
+/* Glow Effect */
+.glow-accent {
+  box-shadow: 0 0 40px rgba(0, 255, 102, 0.15);
+}
+
+.text-glow {
+  text-shadow: 0 0 20px rgba(0, 255, 102, 0.3);
+}
