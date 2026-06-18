@@ -31,7 +31,7 @@ export default function Research() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="bg-[#0a0a0a]/50 backdrop-blur-md p-8 sm:p-10 rounded-3xl border border-zinc-900 shadow-sm hover:border-[#00FF66]/30 hover:shadow-lg hover:shadow-[#00FF66]/5 transition-all duration-300 flex flex-col gap-6"
+            className="bg-[#0a0a0a]/50 backdrop-blur-md p-6 sm:p-10 rounded-3xl border border-zinc-900 shadow-sm hover:border-[#00FF66]/30 hover:shadow-lg hover:shadow-[#00FF66]/5 transition-all duration-300 flex flex-col gap-6"
           >
             <div>
               {/* Badges Row */}

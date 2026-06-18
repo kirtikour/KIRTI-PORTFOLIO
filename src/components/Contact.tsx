@@ -111,7 +111,7 @@ export default function Contact() {
         <div className="max-w-6xl mx-auto rounded-3xl overflow-hidden border border-zinc-900 shadow-2xl bg-[#0a0a0a] grid grid-cols-1 lg:grid-cols-12 items-stretch">
           
           {/* Left Side: Dark Gradient Info Panel */}
-          <div className="lg:col-span-5 bg-gradient-to-br from-zinc-950 via-zinc-900 to-zinc-950 p-8 sm:p-12 text-white flex flex-col justify-between relative overflow-hidden">
+          <div className="lg:col-span-5 bg-gradient-to-br from-zinc-950 via-zinc-900 to-zinc-950 p-6 sm:p-12 text-white flex flex-col justify-between relative overflow-hidden">
             
             <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-[#00FF66]/5 blur-3xl pointer-events-none"></div>
             
@@ -206,7 +206,7 @@ export default function Contact() {
           </div>
 
           {/* Right Side: Clean Structured Dark Form */}
-          <div className="lg:col-span-7 p-8 sm:p-12 bg-[#0a0a0a] border-t lg:border-t-0 lg:border-l border-zinc-900 flex flex-col justify-center">
+          <div className="lg:col-span-7 p-6 sm:p-12 bg-[#0a0a0a] border-t lg:border-t-0 lg:border-l border-zinc-900 flex flex-col justify-center">
             
             <h4 className="text-2xl font-extrabold text-white mb-6 leading-tight">
               Send a Direct Message

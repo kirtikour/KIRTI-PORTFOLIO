@@ -39,7 +39,7 @@ export default function Education() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="p-8 sm:p-10 bg-[#0a0a0a]/50 backdrop-blur-md border border-zinc-900 rounded-3xl hover:border-[#00FF66]/30 hover:shadow-lg hover:shadow-[#00FF66]/5 transition-all duration-300 flex flex-col gap-6"
+            className="p-6 sm:p-10 bg-[#0a0a0a]/50 backdrop-blur-md border border-zinc-900 rounded-3xl hover:border-[#00FF66]/30 hover:shadow-lg hover:shadow-[#00FF66]/5 transition-all duration-300 flex flex-col gap-6"
           >
             <div>
               <div className="flex items-center gap-4 mb-6">
