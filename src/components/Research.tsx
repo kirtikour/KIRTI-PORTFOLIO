@@ -74,17 +74,17 @@ export default function Research() {
                     <ShieldAlert className="w-4.5 h-4.5 text-[#00FF66]" />
                     Important Empirical Findings
                   </h4>
-                  <ul className="space-y-3.5 font-sans text-sm text-zinc-400">
+                  <ul className="space-y-2 font-sans text-sm text-zinc-400">
                     <li className="flex items-start gap-2.5">
                       <span className="text-[#00FF66] font-mono text-xs mt-0.5">&bull;</span>
                       <span>
-                        <strong className="text-zinc-200">Classification Performance:</strong> Swin-T (Vision Transformer) performed best with a classification accuracy of <strong className="text-[#00FF66]">0.8700</strong> (ROC-AUC of <strong className="text-[#00FF66]">0.9523</strong>) compared to ResNet-50's classification accuracy of <span className="text-zinc-300">0.8003</span> (ROC-AUC of <span className="text-zinc-300">0.8952</span>), achieving an accuracy gain of <strong className="text-[#00FF66]">+0.0697</strong>.
+                        <strong className="text-zinc-200">Classification:</strong> Swin-T (ViT) achieved higher accuracy than ResNet-50 (<strong className="text-[#00FF66]">87.00%</strong> vs. <span className="text-zinc-300">80.03%</span>).
                       </span>
                     </li>
                     <li className="flex items-start gap-2.5">
                       <span className="text-[#00FF66] font-mono text-xs mt-0.5">&bull;</span>
                       <span>
-                        <strong className="text-zinc-200">Localization Performance:</strong> ResNet-50 (CNN) significantly outperformed Swin-T in localization, achieving a mean IoU of <strong className="text-[#00FF66]">0.2185</strong> and Pointing Game Accuracy of <strong className="text-[#00FF66]">0.4279</strong>, compared to Swin-T's mean IoU of <span className="text-zinc-300">0.1101</span> and Pointing Game Accuracy of <span className="text-zinc-300">0.1466</span>.
+                        <strong className="text-zinc-200">Localization:</strong> ResNet-50 (CNN) outperformed Swin-T in mean IoU (<strong className="text-[#00FF66]">0.2185</strong> vs. <span className="text-zinc-300">0.1101</span>).
                       </span>
                     </li>
                   </ul>
