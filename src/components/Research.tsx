@@ -1,15 +1,11 @@
-import { useRef } from 'react';
+import { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { BookOpen, ExternalLink, ShieldAlert, Award, FileText } from 'lucide-react';
 
 export default function Research() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
-
-  const metrics = [
-    { name: 'Image Classification (Macro Accuracy)', cnn: 78, vit: 89, unit: '%' },
-    { name: 'Forgery Localization (Mean IoU)', cnn: 91, vit: 65, unit: '%' },
-  ];
+  const [activeMetricTab, setActiveMetricTab] = useState<'classification' | 'localization'>('classification');
 
   return (
     <section 
@@ -102,55 +98,120 @@ export default function Research() {
             <div>
               <div className="flex items-center gap-2 mb-6">
                 <ShieldAlert className="w-5 h-5 text-[#00FF66]" />
-                <h4 className="font-bold text-zinc-300 text-xs uppercase tracking-wider font-mono">Classification vs Localization Gap</h4>
+                <h4 className="font-bold text-zinc-300 text-xs uppercase tracking-wider font-mono">Empirical Research Findings</h4>
               </div>
 
-              <p className="text-xs text-zinc-500 mb-8 leading-relaxed font-medium">
-                Comparative metrics highlighting the trade-off. Inductive bias in CNNs affects pixel-level localization compared to ViT's global self-attention.
-              </p>
-
-              {/* Graphical Bars */}
-              <div className="space-y-8">
-                {metrics.map((metric) => (
-                  <div key={metric.name} className="space-y-3">
-                    <div className="text-xs sm:text-sm font-semibold text-zinc-300 leading-tight">
-                      {metric.name}
-                    </div>
-                    
-                    {/* CNN Bar */}
-                    <div className="space-y-1">
-                      <div className="flex justify-between text-xs font-semibold font-mono">
-                        <span className="text-zinc-500">CNN (e.g. ResNet)</span>
-                        <span className="text-zinc-300">{metric.cnn}{metric.unit}</span>
-                      </div>
-                      <div className="h-2.5 w-full bg-zinc-900 rounded-full overflow-hidden">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          animate={isInView ? { width: `${metric.cnn}%` } : {}}
-                          transition={{ duration: 1, delay: 0.3 }}
-                          className="h-full bg-zinc-500 rounded-full"
-                        />
-                      </div>
-                    </div>
-
-                    {/* ViT Bar */}
-                    <div className="space-y-1">
-                      <div className="flex justify-between text-xs font-semibold font-mono">
-                        <span className="text-[#00FF66]">Vision Transformer (ViT)</span>
-                        <span className="text-[#00FF66]">{metric.vit}{metric.unit}</span>
-                      </div>
-                      <div className="h-2.5 w-full bg-zinc-900 rounded-full overflow-hidden">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          animate={isInView ? { width: `${metric.vit}%` } : {}}
-                          transition={{ duration: 1, delay: 0.5 }}
-                          className="h-full bg-[#00FF66] rounded-full"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                ))}
+              {/* Toggle Buttons */}
+              <div className="flex gap-2 mb-6 font-mono text-[10px]">
+                <button
+                  onClick={() => setActiveMetricTab('classification')}
+                  className={`flex-1 py-2 rounded-xl border text-center font-bold transition-all duration-200 cursor-pointer ${
+                    activeMetricTab === 'classification'
+                      ? 'border-[#00FF66]/30 bg-[#00FF66]/5 text-[#00FF66]'
+                      : 'border-zinc-900 bg-zinc-950/40 text-zinc-500 hover:text-zinc-300'
+                  }`}
+                >
+                  Classification
+                </button>
+                <button
+                  onClick={() => setActiveMetricTab('localization')}
+                  className={`flex-1 py-2 rounded-xl border text-center font-bold transition-all duration-200 cursor-pointer ${
+                    activeMetricTab === 'localization'
+                      ? 'border-[#00FF66]/30 bg-[#00FF66]/5 text-[#00FF66]'
+                      : 'border-zinc-900 bg-zinc-950/40 text-zinc-500 hover:text-zinc-300'
+                  }`}
+                >
+                  Localization
+                </button>
               </div>
+
+              {activeMetricTab === 'classification' ? (
+                /* Classification Table */
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left font-mono text-xs border-collapse">
+                    <thead>
+                      <tr className="border-b border-zinc-900 text-zinc-500 text-[10px] uppercase">
+                        <th className="py-2.5 font-bold">Metric</th>
+                        <th className="py-2.5 text-right font-bold">ResNet-50</th>
+                        <th className="py-2.5 text-right font-bold text-[#00FF66]">Swin-T</th>
+                        <th className="py-2.5 text-right font-bold text-zinc-400">Δ</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-zinc-900/60 text-zinc-300">
+                      <tr>
+                        <td className="py-2.5 text-zinc-400 font-sans">Accuracy</td>
+                        <td className="py-2.5 text-right">0.8003</td>
+                        <td className="py-2.5 text-right text-[#00FF66] font-bold">0.8700</td>
+                        <td className="py-2.5 text-right text-emerald-400 font-bold">+0.0697</td>
+                      </tr>
+                      <tr>
+                        <td className="py-2.5 text-zinc-400 font-sans">Precision</td>
+                        <td className="py-2.5 text-right">0.8189</td>
+                        <td className="py-2.5 text-right text-[#00FF66] font-bold">0.9046</td>
+                        <td className="py-2.5 text-right text-emerald-400 font-bold">+0.0857</td>
+                      </tr>
+                      <tr>
+                        <td className="py-2.5 text-zinc-400 font-sans">Recall</td>
+                        <td className="py-2.5 text-right">0.7712</td>
+                        <td className="py-2.5 text-right text-[#00FF66] font-bold">0.8272</td>
+                        <td className="py-2.5 text-right text-emerald-400 font-bold">+0.0560</td>
+                      </tr>
+                      <tr>
+                        <td className="py-2.5 text-zinc-400 font-sans">F1-Score</td>
+                        <td className="py-2.5 text-right">0.7943</td>
+                        <td className="py-2.5 text-right text-[#00FF66] font-bold">0.8642</td>
+                        <td className="py-2.5 text-right text-emerald-400 font-bold">+0.0699</td>
+                      </tr>
+                      <tr>
+                        <td className="py-2.5 text-zinc-400 font-sans">ROC-AUC</td>
+                        <td className="py-2.5 text-right">0.8952</td>
+                        <td className="py-2.5 text-right text-[#00FF66] font-bold">0.9523</td>
+                        <td className="py-2.5 text-right text-emerald-400 font-bold">+0.0571</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              ) : (
+                /* Localization Table */
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left font-mono text-xs border-collapse">
+                    <thead>
+                      <tr className="border-b border-zinc-900 text-zinc-500 text-[10px] uppercase">
+                        <th className="py-2.5 font-bold">Metric</th>
+                        <th className="py-2.5 text-right font-bold text-[#00FF66]">ResNet-50</th>
+                        <th className="py-2.5 text-right font-bold">Swin-T</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-zinc-900/60 text-zinc-300">
+                      <tr>
+                        <td className="py-2.5 text-zinc-400 font-sans">IoU (mean ± std)</td>
+                        <td className="py-2.5 text-right text-[#00FF66] font-bold">0.2185 ± 0.260</td>
+                        <td className="py-2.5 text-right">0.1101 ± 0.127</td>
+                      </tr>
+                      <tr>
+                        <td className="py-2.5 text-zinc-400 font-sans">IoU (median)</td>
+                        <td className="py-2.5 text-right text-[#00FF66] font-bold">0.0397</td>
+                        <td className="py-2.5 text-right">0.0329</td>
+                      </tr>
+                      <tr>
+                        <td className="py-2.5 text-zinc-400 font-sans">Energy Inside (mean ± std)</td>
+                        <td className="py-2.5 text-right text-[#00FF66] font-bold">0.2447 ± 0.268</td>
+                        <td className="py-2.5 text-right">0.1362 ± 0.154</td>
+                      </tr>
+                      <tr>
+                        <td className="py-2.5 text-zinc-400 font-sans">Energy Inside (median)</td>
+                        <td className="py-2.5 text-right text-[#00FF66] font-bold">0.0758</td>
+                        <td className="py-2.5 text-right">0.0436</td>
+                      </tr>
+                      <tr>
+                        <td className="py-2.5 text-zinc-400 font-sans">Pointing Game Accuracy</td>
+                        <td className="py-2.5 text-right text-[#00FF66] font-bold">0.4279</td>
+                        <td className="py-2.5 text-right">0.1466</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              )}
             </div>
 
             <div className="mt-8 p-4 bg-zinc-900/40 rounded-2xl border border-zinc-850 text-xs text-zinc-400 leading-relaxed font-mono">
