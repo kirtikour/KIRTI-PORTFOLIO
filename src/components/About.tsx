@@ -132,11 +132,11 @@ export default function About() {
             </h3>
             
             <p className="text-zinc-400 leading-relaxed">
-              As a Computer Science graduate from Sukkur IBA University, I have spent the past few years mastering the MERN stack while delving deep into Artificial Intelligence. I focus on developing modular, production-ready systems that solve real-world forensic and accessibility problems.
+              I focus on developing modular, production-ready systems that solve real-world forensic and accessibility problems using the MERN stack and Artificial Intelligence.
             </p>
             
             <p className="text-zinc-400 leading-relaxed">
-              I had the privilege of co-authoring peer-reviewed AI research published at <strong className="text-white">IEEE iCoMET 2026</strong>. I have also built software for production environments during my internships. My academic journey was fully funded through the prestigious <strong className="text-white">STHP Merit Scholar</strong> scheme, and I was honored with the <strong className="text-white">PM Laptop Scheme Award</strong> for academic excellence.
+              I have co-authored peer-reviewed AI research published at <strong className="text-white">IEEE iCoMET 2026</strong> and built software for production environments during my internships. My academic journey was fully funded through the prestigious <strong className="text-white">STHP Merit Scholar</strong> scheme, and I received the <strong className="text-white">PM Laptop Scheme Award</strong> for academic excellence.
             </p>
             
             <div className="pt-4 border-t border-zinc-900 flex flex-wrap gap-x-6 gap-y-2 text-sm text-zinc-500">
@@ -157,7 +157,7 @@ export default function About() {
             value={3.68} 
             suffix="" 
             label="CGPA" 
-            sublabel="Sukkur IBA University"
+            sublabel="BS Computer Science"
             icon={<GraduationCap className="w-5 h-5" />}
           />
           <StatCard 
