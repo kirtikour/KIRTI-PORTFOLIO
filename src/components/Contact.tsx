@@ -74,7 +74,7 @@ export default function Contact() {
           reply_to: formData.email,
           subject: formData.subject || 'Portfolio Contact Form Message',
           message: formData.message,
-          to_email: 'katariakirti2003@gmail.com',
+          to_email: 'kirtikourkataria@gmail.com',
         },
         publicKey
       );
@@ -131,7 +131,7 @@ export default function Contact() {
             <div className="relative z-10 space-y-5 my-10 font-mono text-xs">
               {/* Email */}
               <a 
-                href="mailto:katariakirti2003@gmail.com"
+                href="mailto:kirtikourkataria@gmail.com"
                 className="flex items-center gap-3.5 text-zinc-300 hover:text-[#00FF66] transition-colors group"
               >
                 <div className="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-850 flex items-center justify-center text-zinc-400 group-hover:scale-105 transition-transform duration-200">
@@ -139,7 +139,7 @@ export default function Contact() {
                 </div>
                 <div className="min-w-0">
                   <div className="text-[10px] text-zinc-500 font-bold uppercase tracking-wider">Email</div>
-                  <div className="text-sm font-semibold truncate text-white group-hover:text-[#00FF66]">katariakirti2003@gmail.com</div>
+                  <div className="text-sm font-semibold truncate text-white group-hover:text-[#00FF66]">kirtikourkataria@gmail.com</div>
                 </div>
               </a>
 
