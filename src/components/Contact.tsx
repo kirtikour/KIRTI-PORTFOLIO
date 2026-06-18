@@ -85,7 +85,7 @@ export default function Contact() {
     } catch (err: any) {
       console.error('EmailJS Error:', err);
       setStatus('error');
-      setDebugMsg(err?.text || 'An error occurred while sending your message. Please try again.');
+      setDebugMsg("Oops! Something went wrong and your message couldn't be sent. Please try again, or reach out to me directly at kirtikourkataria@gmail.com.");
     }
   };
 
