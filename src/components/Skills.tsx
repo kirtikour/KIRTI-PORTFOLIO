@@ -1,3 +1,5 @@
+import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { Monitor, Cpu, Database, Brain, Terminal } from 'lucide-react';
 
 interface SkillGroup {
@@ -7,6 +9,9 @@ interface SkillGroup {
 }
 
 export default function Skills() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
   const skillGroups: SkillGroup[] = [
     {
       category: 'Frontend Development',
@@ -36,24 +41,32 @@ export default function Skills() {
   ];
 
   return (
-    <div className="bg-transparent relative">
+    <div ref={ref} className="bg-transparent relative">
       
       {/* Header */}
-      <div className="text-left max-w-3xl mb-12">
+      <motion.div 
+        initial={{ opacity: 0, y: 15 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.5 }}
+        className="text-left max-w-3xl mb-12"
+      >
         <h3 className="text-xs font-mono font-bold text-[#00FF66] uppercase tracking-widest mb-3">
-          {`/* Technical Skills */`}
+          {`/* Skills */`}
         </h3>
         <h4 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-          Technical Arsenal & Core Stack
+          Skills
         </h4>
         <div className="w-12 h-1 bg-[#00FF66] mt-3 rounded-full"></div>
-      </div>
+      </motion.div>
 
       {/* Simple Skills Lines Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
-        {skillGroups.map((group) => (
-          <div
+        {skillGroups.map((group, idx) => (
+          <motion.div
             key={group.category}
+            initial={{ opacity: 0, y: 15 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: idx * 0.1 }}
             className="pb-6 border-b border-zinc-900/60 flex flex-col justify-start"
           >
             {/* Group Header */}
@@ -68,7 +81,7 @@ export default function Skills() {
             <p className="text-zinc-400 text-sm leading-relaxed tracking-wide font-sans pl-7">
               {group.skills.join('  •  ')}
             </p>
-          </div>
+          </motion.div>
         ))}
       </div>
 
