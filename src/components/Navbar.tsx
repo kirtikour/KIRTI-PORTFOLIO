@@ -17,7 +17,6 @@ export default function Navbar({ activeSection, setActiveSection }: NavbarProps)
 
   const navItems: NavItem[] = [
     { id: 'home', label: 'Home', href: '#home' },
-    { id: 'about', label: 'About', href: '#about' },
     { id: 'projects', label: 'Projects', href: '#projects' },
     { id: 'experience', label: 'Experience', href: '#experience' },
     { id: 'research', label: 'Research', href: '#research' },

@@ -18,13 +18,16 @@ export default function App() {
   const renderActiveSection = () => {
     switch (activeSection) {
       case 'home':
-        return <Hero setActiveSection={setActiveSection} />;
+        return (
+          <div className="flex flex-col">
+            <Hero setActiveSection={setActiveSection} />
+            <About />
+          </div>
+        );
       case 'projects':
         return <Projects setActiveSection={setActiveSection} setSelectedProjectId={setSelectedProjectId} />;
       case 'project-details':
         return <ProjectDetails projectId={selectedProjectId} onBack={() => { setActiveSection('projects'); setSelectedProjectId(null); }} />;
-      case 'about':
-        return <About />;
       case 'experience':
         return <Experience />;
       case 'research':
@@ -34,7 +37,12 @@ export default function App() {
       case 'contact':
         return <Contact />;
       default:
-        return <Hero setActiveSection={setActiveSection} />;
+        return (
+          <div className="flex flex-col">
+            <Hero setActiveSection={setActiveSection} />
+            <About />
+          </div>
+        );
     }
   };
 
