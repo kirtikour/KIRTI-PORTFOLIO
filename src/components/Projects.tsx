@@ -21,13 +21,12 @@ interface ProjectsProps {
 }
 
 export default function Projects({ setActiveSection, setSelectedProjectId }: ProjectsProps) {
-  const [activeTab, setActiveTab] = useState<'All' | 'Web Development' | 'AI & Machine Learning' | 'Java'>('All');
+  const [activeTab, setActiveTab] = useState<'All' | 'Web Development' | 'AI & Machine Learning'>('All');
 
-  const categories: ('All' | 'Web Development' | 'AI & Machine Learning' | 'Java')[] = [
+  const categories: ('All' | 'Web Development' | 'AI & Machine Learning')[] = [
     'All',
     'Web Development',
-    'AI & Machine Learning',
-    'Java'
+    'AI & Machine Learning'
   ];
 
   const projects: Project[] = [
@@ -37,77 +36,77 @@ export default function Projects({ setActiveSection, setSelectedProjectId }: Pro
       featured: true,
       categories: ['AI & Machine Learning', 'Computer Vision'],
       tags: ['AI Research', 'Computer Vision', 'Deep Learning'],
-      stack: ['Python', 'PyTorch', 'OpenCV', 'Deep Learning', 'Computer Vision'],
-      highlight: '93.38% IoU, 96.56% Dice Score via BYOL + U-Net',
-      description: 'Developed a deep learning system for automatic solar panel segmentation from aerial and satellite imagery using self-supervised learning techniques.',
+      stack: ['Python', 'PyTorch', 'OpenCV', 'Flask', 'Docker'],
+      highlight: '93.38% IoU & 96.56% Dice Score via BYOL + U-Net',
+      description: 'Automatically detects and segments solar panels from aerial/satellite images using self-supervised learning to assist in solar energy mapping.',
       github: 'https://github.com/orgs/solar-ssl/repositories',
     },
     {
       id: 'chest-xray',
-      title: 'Chest X-Ray Analysis',
+      title: 'Chest X-Ray Disease Analysis',
       categories: ['AI & Machine Learning'],
       tags: ['Medical AI', 'Deep Learning', 'Healthcare'],
-      stack: ['Python', 'TensorFlow', 'PyTorch', 'OpenCV', 'CNNs'],
-      highlight: 'Abnormalities detection & disease classification',
-      description: 'Built an AI-powered medical image analysis system capable of identifying abnormalities from chest X-ray images to assist in early disease detection.',
+      stack: ['Python', 'PyTorch', 'Django', 'React', 'Pandas'],
+      highlight: 'Multi-label classification of 8 thoracic diseases with 74% Macro AUC',
+      description: 'An AI-powered medical image analysis system that automatically classifies chest X-rays across 8 diseases simultaneously to assist in early detection.',
       github: 'https://github.com/kirtikour/chest--xray--analysis',
     },
     {
+      id: 'braille',
+      title: 'Braille Character & Word Recognition',
+      categories: ['AI & Machine Learning', 'Computer Vision'],
+      tags: ['Accessibility', 'AI', 'Computer Vision'],
+      stack: ['Python', 'Deep Learning', 'OpenCV', 'Computer Vision'],
+      highlight: 'OCR-inspired dot detection and translation pipeline',
+      description: 'An accessibility-focused AI system that processes images of Braille text and translates them into readable English text at character and word levels.',
+      github: 'https://github.com/kirtikour',
+    },
+    {
+      id: 'handwritten-text',
+      title: 'Handwritten Text Recognition',
+      categories: ['AI & Machine Learning', 'Computer Vision'],
+      tags: ['Deep Learning', 'CRNN', 'OCR'],
+      stack: ['Python', 'PyTorch', 'OpenCV', 'Streamlit'],
+      highlight: 'Real-time text extraction using CRNN (CNN + RNN)',
+      description: 'An end-to-end CRNN pipeline that takes images of handwritten text and converts them to digital text in real-time, deployed as a Streamlit web app.',
+      github: 'https://github.com/kirtikour',
+    },
+    {
       id: 'healr',
-      title: 'Healr (Healthcare Platform)',
+      title: 'HEALR — Medical Search Platform',
       categories: ['Web Development'],
       tags: ['MERN Stack', 'Healthcare', 'Full Stack'],
-      stack: ['MongoDB', 'Express.js', 'React.js', 'Node.js'],
-      highlight: 'Patient/doctor booking portal with profile search',
-      description: 'A full-stack healthcare appointment platform inspired by Oladoc that connects patients with doctors through a modern MERN dashboard.',
+      stack: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'JWT'],
+      highlight: 'Full-stack medical hub with 5,000+ items and instant search',
+      description: 'A healthcare portal where users can search 5,000+ medicines/tests, manage a shopping cart, and schedule doctor appointments with doctor profiles.',
       github: 'https://github.com/kirtikour',
       demo: 'https://healr.vercel.app/',
     },
     {
-      id: 'ghar-ka-khazana',
-      title: 'Ghar Ka Khazana',
-      categories: ['Web Development'],
-      tags: ['E-Commerce', 'MERN Stack'],
-      stack: ['MongoDB', 'Express.js', 'React.js', 'Node.js'],
-      highlight: 'Local homemade pickle store, shopping cart & orders',
-      description: 'A full-stack e-commerce platform developed for a local homemade pickle business, featuring inventory control and ordering pipelines.',
-      github: 'https://github.com/kirtikour/ghar-ka-khazana',
-      demo: 'https://ghar-ka-khazana.vercel.app/',
-    },
-    {
       id: 'jobtracker',
-      title: 'Job Tracker',
+      title: 'JobTracker — Analytics Platform',
       categories: ['Web Development'],
-      tags: ['Productivity', 'Full Stack'],
-      stack: ['React', 'Node.js', 'Express', 'MongoDB'],
-      highlight: 'Analytical recruitment dashboard for application tracking',
+      tags: ['Productivity', 'Full Stack', 'MERN Stack'],
+      stack: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'NLP'],
+      highlight: 'NLP CV parser and analytical application pipeline tracking',
       description: 'A career management platform that helps users organize and monitor job applications, interview schedules, and hiring progress.',
       github: 'https://github.com/kirtikour/jobtracker',
       demo: 'https://jobtracker.vercel.app/',
     },
     {
-      id: 'braille',
-      title: 'Braille Recognition System',
-      categories: ['AI & Machine Learning', 'Computer Vision'],
-      tags: ['Accessibility', 'AI', 'Computer Vision'],
-      stack: ['Python', 'Deep Learning', 'OpenCV', 'Computer Vision'],
-      highlight: 'OCR-inspired pipeline translating Braille to text',
-      description: 'Developed an accessibility-focused AI system capable of recognizing Braille characters and converting them into readable text.',
-      github: 'https://github.com/kirtikour',
-    },
-    {
-      id: 'campus-management',
-      title: 'Campus Management System',
-      categories: ['Java'],
-      tags: ['Java SE', 'Desktop App', 'OOP'],
-      stack: ['Java', 'Swing', 'MySQL', 'JDBC'],
-      highlight: 'Student enrollments, grading portal, course databases',
-      description: 'A desktop-based administration system written in Java utilizing Swing GUI and JDBC to manage academic databases and course enrollments.',
-      github: 'https://github.com/kirtikour',
+      id: 'ghar-ka-khazana',
+      title: 'Ghar-Ka-Khazana — ECommerce',
+      categories: ['Web Development'],
+      tags: ['E-Commerce', 'Vue.js', 'Full Stack'],
+      stack: ['Vue.js 3', 'Pinia', 'Node.js', 'Express.js', 'MongoDB'],
+      highlight: 'Pickle e-commerce store with Vue 3, Pinia, Node, and Express',
+      description: 'A complete e-commerce storefront for a homemade pickle business, with a product catalog, shopping cart, and admin inventory control.',
+      github: 'https://github.com/kirtikour/ghar-ka-khazana',
+      demo: 'https://ghar-ka-khazana.vercel.app/',
     }
   ];
 
-  const filteredProjects = activeTab === 'All' 
+  const filteredProjects = activeTab === 'All'  
     ? projects 
     : projects.filter(p => p.categories.includes(activeTab as any));
 
