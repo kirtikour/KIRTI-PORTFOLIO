@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Star, Code, Cpu, Eye, CheckCircle2, ArrowRight, Layers } from 'lucide-react';
+import { ExternalLink, CheckCircle2, ArrowRight } from 'lucide-react';
 
 interface Project {
   id: string;
@@ -171,27 +171,6 @@ export default function Projects({ setActiveSection, setSelectedProjectId }: Pro
                 {/* Header Info */}
                 <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between">
                   <div>
-                    {/* Category tags / Featured mark */}
-                    <div className="flex justify-between items-center mb-4">
-                      <div className="flex flex-wrap gap-x-3 gap-y-1">
-                        {project.categories.map(cat => (
-                          <span 
-                            key={cat}
-                            className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-[#00FF66]/80 font-mono"
-                          >
-                            {cat === 'Web Development' ? <Code className="w-3.5 h-3.5" /> : cat === 'AI & Machine Learning' ? <Cpu className="w-3.5 h-3.5" /> : cat === 'Java' ? <Layers className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
-                            {cat}
-                          </span>
-                        ))}
-                      </div>
-                      {project.featured && (
-                        <span className="flex items-center gap-1 text-[10px] font-extrabold text-[#00FF66] bg-[#00FF66]/10 px-2 py-0.5 rounded-full border border-[#00FF66]/20 font-mono shrink-0">
-                          <Star className="w-3 h-3 fill-[#00FF66]" />
-                          Featured
-                        </span>
-                      )}
-                    </div>
-
                     {/* Title */}
                     <h3 className="text-xl font-bold text-white group-hover:text-[#00FF66] transition-colors duration-250 mb-3 flex items-center justify-between">
                       {project.title}
