@@ -7,19 +7,6 @@ export default function Education() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
-  const achievements = [
-    {
-      icon: <Award className="w-5 h-5 text-[#00FF66]" />,
-      title: 'STHP Merit Scholar',
-      description: 'Awarded fully-funded undergraduate scholarship covering tuition, hostel, and stipend.'
-    },
-    {
-      icon: <Laptop className="w-5 h-5 text-[#00FF66]" />,
-      title: 'PM Laptop Scheme Awardee',
-      description: 'Received for outstanding academic merit and rank in Computer Science department.'
-    }
-  ];
-
   const courses = [
     'Data Structures & Algorithms', 'Machine Learning', 'Software Engineering',
     'Database Systems', 'Computer Networks', 'Operating Systems', 'Enterprise App Development', 'Information Security'
@@ -44,19 +31,19 @@ export default function Education() {
           <div className="w-12 h-1 bg-[#00FF66] mt-4 rounded-full"></div>
         </div>
 
-        {/* Layout: Main Education Card & Coursework / Achievements */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        {/* Layout: Centered Main Education Card with Honors inside */}
+        <div className="max-w-4xl mx-auto">
           
-          {/* Left: Main University card */}
+          {/* Main University card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-7 p-8 sm:p-10 bg-[#0a0a0a]/50 backdrop-blur-md border border-zinc-900 rounded-3xl hover:border-[#00FF66]/30 hover:shadow-lg hover:shadow-[#00FF66]/5 transition-all duration-300 flex flex-col justify-between"
+            className="p-8 sm:p-10 bg-[#0a0a0a]/50 backdrop-blur-md border border-zinc-900 rounded-3xl hover:border-[#00FF66]/30 hover:shadow-lg hover:shadow-[#00FF66]/5 transition-all duration-300 flex flex-col gap-6"
           >
             <div>
               <div className="flex items-center gap-4 mb-6">
-                <div className="p-3 bg-zinc-900/60 text-[#00FF66] rounded-2xl">
+                <div className="p-3 bg-zinc-900/60 text-[#00FF66] rounded-2xl shrink-0">
                   <GraduationCap className="w-8 h-8" />
                 </div>
                 <div>
@@ -70,20 +57,49 @@ export default function Education() {
                 <div>
                   CGPA: <span className="text-[#00FF66] font-bold text-lg">3.68 / 4.00</span>
                 </div>
-                <div className="w-1.5 h-1.5 rounded-full bg-zinc-800 hidden sm:block"></div>
+                <div className="w-1.5 h-1.5 rounded-full bg-zinc-850 hidden sm:block"></div>
                 <div>
                   Period: <span className="text-zinc-200">2022 – 2026</span>
                 </div>
-                <div className="w-1.5 h-1.5 rounded-full bg-zinc-800 hidden sm:block"></div>
+                <div className="w-1.5 h-1.5 rounded-full bg-zinc-850 hidden sm:block"></div>
                 <div>
                   Location: <span className="text-zinc-200">Sukkur, Pakistan</span>
                 </div>
               </div>
 
               {/* Description */}
-              <p className="text-sm sm:text-base text-zinc-400 leading-relaxed mb-6">
+              <p className="text-sm sm:text-base text-zinc-400 leading-relaxed">
                 A top-tier computer science curriculum with intensive focus on analytical reasoning, software architecture, algorithm design, and modern artificial intelligence methodologies. Mentored peers as an executive member of the CS Society and volunteered in local programming hackathons.
               </p>
+            </div>
+
+            {/* Honors & Scholarships Sub-Grid */}
+            <div className="pt-6 border-t border-zinc-900/60">
+              <h4 className="flex items-center gap-2 text-zinc-300 font-bold text-xs uppercase tracking-wider mb-4 font-mono">
+                <Award className="w-4 h-4 text-[#00FF66]" />
+                Academic Honors & Achievements
+              </h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="p-5 bg-zinc-900/20 border border-zinc-900 rounded-2xl flex gap-3.5 items-start">
+                  <div className="p-2 bg-zinc-900/60 rounded-xl text-[#00FF66] shrink-0 mt-0.5">
+                    <Award className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h5 className="font-bold text-sm text-white mb-1">STHP Merit Scholar</h5>
+                    <p className="text-xs text-zinc-400 leading-relaxed">Awarded fully-funded undergraduate scholarship covering tuition, hostel, and stipend.</p>
+                  </div>
+                </div>
+
+                <div className="p-5 bg-zinc-900/20 border border-zinc-900 rounded-2xl flex gap-3.5 items-start">
+                  <div className="p-2 bg-zinc-900/60 rounded-xl text-[#00FF66] shrink-0 mt-0.5">
+                    <Laptop className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h5 className="font-bold text-sm text-white mb-1">PM Laptop Scheme Awardee</h5>
+                    <p className="text-xs text-zinc-400 leading-relaxed">Received for outstanding academic merit and rank in Computer Science department.</p>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Coursework list */}
@@ -103,29 +119,6 @@ export default function Education() {
                 ))}
               </div>
             </div>
-          </motion.div>
-
-          {/* Right: Academic honors */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-5 flex flex-col gap-6"
-          >
-            {achievements.map((item, idx) => (
-              <div
-                key={idx}
-                className="p-6 bg-[#0a0a0a]/50 backdrop-blur-md border border-zinc-900 rounded-3xl hover:border-[#00FF66]/30 hover:shadow-lg hover:shadow-[#00FF66]/5 transition-all duration-300 flex-1 flex gap-4"
-              >
-                <div className="p-3 bg-zinc-900/60 rounded-2xl h-fit shrink-0">
-                  {item.icon}
-                </div>
-                <div>
-                  <h4 className="font-bold text-white text-base mb-1">{item.title}</h4>
-                  <p className="text-sm text-zinc-400 leading-relaxed">{item.description}</p>
-                </div>
-              </div>
-            ))}
           </motion.div>
 
         </div>
